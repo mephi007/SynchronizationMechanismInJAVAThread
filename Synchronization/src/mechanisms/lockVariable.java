@@ -9,8 +9,8 @@ public class lockVariable {
 		DecrementThread dec = new DecrementThread(inv);
 		inc.start();
 		dec.start();
-		inc.join();
-		dec.join();
+//		inc.join();
+//		dec.join();
 		System.out.println("Item is inventory should be zero"+ inv.getItems());
 	}
 	public static class IncrementThread extends Thread{
