@@ -30,18 +30,13 @@ public class ProducerConsumerUsingMutex {
 				}catch(Exception e) {
 					
 				}
+				for(int i=0; i<cap; i++) {
 				num = random.nextInt(100);
-				if (q.size() == cap) {
-					try {
-						wait();
-					} catch (InterruptedException e) {
-
-					}
-				}
+				
 				q.add(num);
 				System.out.println("produced " + num);
 				System.out.println("Queue size " + q.size());
-				
+				}
 					con.release();
 				
 				
@@ -59,17 +54,11 @@ public class ProducerConsumerUsingMutex {
 				}catch(Exception e) {
 					
 				}
-				if (q.size() == 0) {
-					try {
-						wait();
-					} catch (InterruptedException e) {
-
-					}
-				}
+				for(int i=0; i<cap; i++) {
 				num = q.poll();
 				System.out.println("consumed " + num);
 				System.out.println("Queue size " + q.size());
-				
+				}
 					pro.release();
 				
 				
